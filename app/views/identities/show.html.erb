@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @identity.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @identity.content %>
+</p>
+
+<%= link_to 'Edit', edit_identity_path(@identity) %> |
+<%= link_to 'Back', identities_path %>
+
+
+
+<form action="<%= identity_questions_path(@identity)%>" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    작성자 : <input type ="text" name="user_name"> 
+     습 관 : <input type ="text" name="body">
+    <button type="submit">제출 </button>
+</form>
+
+<h3>습관 보기</h3>
+<% Question.where(identity_id: @identity.id).each do |question| %>
+작성자 : <%= question.user_name %>
+댓 글 : <%=question.body %> 
+<hr>
+<% end %>

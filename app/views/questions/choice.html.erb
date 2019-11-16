@@ -1,0 +1,15 @@
+<h1>습관 선택</h1>
+
+<% Question.where(identity_id: @questions.each do |post| %> 
+
+<form method="GET" action='/questions/receiver'>
+	<input type="checkbox" name="selector_a" value="<%=post.body%>" /><%=post.body%> <br> <!-- param[:selector] = A -->
+  
+</form>
+
+<% end %> 
+
+	<input type="submit" value="Send to receiver" />
+
+<a href="/identities/new">글쓰기 </a>
+
