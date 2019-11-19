@@ -18,6 +18,8 @@ class IdentitiesController < ApplicationController
     selector.each do |select|
       current_user.answers.create(question_id: select)
     end
+    
+    redirect_to "/identities/feedback"
   end
   
   # GET /identities

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'questions/choice' => "questions#choice"
   get 'identities/receiver' => "identities#receiver"
   post 'identities/answer' => "identities#answer"
+  get 'identities/feedback'
   
   # get '/users/sign_out' => "devise/sessions#destroy"
   
