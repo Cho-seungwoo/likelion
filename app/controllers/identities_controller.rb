@@ -1,8 +1,11 @@
 class IdentitiesController < ApplicationController
+  
   before_action :set_identity, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show]
 
+ 
   def choice
-    @identities = Identity.all
+    @jobs = Identity.all
   end
   
   def receiver
@@ -22,6 +25,8 @@ class IdentitiesController < ApplicationController
     redirect_to "/identities/feedback"
   end
   
+  
+  
   # GET /identities
   # GET /identities.json
   def index
@@ -31,6 +36,7 @@ class IdentitiesController < ApplicationController
   # GET /identities/1
   # GET /identities/1.json
   def show
+    
   end
 
   # GET /identities/new
@@ -87,13 +93,12 @@ class IdentitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_identity
-      @identity = Identity.find(params[:id])
+     @identity = Identity.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def identity_params
-      params.require(:identity).permit(:title, :content)
+     params.require(:identity).permit(:title, :content)
     end
     
-   
-  end 
+end  

@@ -1,0 +1,21 @@
+<h2> 당신을 위한 성취 기록 습관 도우미! </h2>
+<h1> "리틀빅"입니다! </h1>
+
+<% if user_signed_in? %>
+
+<br>
+<a href="<%=destroy_user_session_path%>" method="delete">로그아웃</a>
+<br>
+<a href="/identities/feedback">나의 목표습관 바로가기</a>
+<br>
+<a href="/identities/choice">정체성 및 습관 새로 선택하기</a>
+<br>
+
+
+<%else %>
+<a href="<%=user_session_path%>"> 로그인</a>
+<a href="<%=new_user_session_path%>"> 회원가입</a>
+<a href="<%=identities_index_path%>"> 관리자 페이지</a>
+
+
+<% end %>

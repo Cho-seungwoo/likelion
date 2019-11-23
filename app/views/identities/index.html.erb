@@ -1,5 +1,3 @@
-가나다라마바사
-
 <p id="notice"><%= notice %></p>
 
 <h1>Identities</h1>
@@ -27,12 +25,11 @@
 </table>
 
 <br>
-
-<%= link_to 'New Identity', new_identity_path %>
+<a href="/identities/feedback">나의 목표습관 바로가기</a>
 <br>
-<a href="/identities/choice">정체성 선택하기</a>
+<a href="/identities/choice">정체성 및 습관 새로 선택하기</a>
 <br>
-<a href="/questions/choice">습관 선택하기</a>
+<%= link_to '정체성 새로 만들기', new_identity_path %>
 <br>
 
 <% if user_signed_in? %>
