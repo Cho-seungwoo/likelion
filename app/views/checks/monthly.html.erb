@@ -1,0 +1,33 @@
+<%= month_calendar do |date| %>
+  <%= date %>
+  
+  <% temp = Check.where(check_date: date, user_id: current_user.id) %>
+  실천 개수 : <%= temp.count %>
+      <br>
+  성취율 : 
+  <%= number_to_percentage(temp.count.to_f/@daygoal_count*100, precision: 0) %>
+ 
+ <br> 
+ <% if temp.count.to_f/@daygoal_count > 0.7  %>
+   
+   피드백: 당신은 훌륭한 
+   <% temp = Answer.where(user_id: current_user.id) %> 
+   <%= temp.map{ |a| a.question.identity.content }.uniq %>
+   
+   입니다!
+  
+  
+ <% elsif temp.count.to_f/@daygoal_count > 0.4 %>
+ 피드백:<%="Very good!"%>   
+ <% else %>
+ 피드백: <%= "당신은 해낼 수 있어요!" %>
+<% end %>
+  
+<% end %>
+
+<br>
+<a href="/checks/index"> 이전 페이지로 이동하기 </a>
+<br>
+<a href="/identities/main">메인 페이지로 이동하기</a>
+
+

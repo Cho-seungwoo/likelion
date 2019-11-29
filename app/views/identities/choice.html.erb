@@ -1,6 +1,6 @@
 <h1>정체성 선택</h1>
 
-<form method="GET" action='/identities/receiver'>
+<form method="POST" action='/identities/receiver'>
 <% @jobs.each do |identity| %> 
 <input type="checkbox" name="selector[]" value="<%=identity.id%>" /><%=identity.content%> <br> <!-- param[:selector] = A -->
 <% end %> 

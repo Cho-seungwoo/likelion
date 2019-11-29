@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  check_date: 2019-11-26
+  check: 1
+  user: one
+  answer: one
+
+two:
+  check_date: 2019-11-26
+  check: 1
+  user: two
+  answer: two

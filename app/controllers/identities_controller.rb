@@ -3,7 +3,6 @@ class IdentitiesController < ApplicationController
   before_action :set_identity, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show]
 
- 
   def choice
     @jobs = Identity.all
   end
@@ -18,6 +17,7 @@ class IdentitiesController < ApplicationController
     if current_user.answers.present?
       current_user.answers.destroy_all
     end
+    
     selector.each do |select|
       current_user.answers.create(question_id: select)
     end
